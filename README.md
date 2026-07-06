@@ -110,6 +110,16 @@ Confirmed via the Pi-hole dashboard that:
 - Total Queries and Queries Blocked began incrementing from 0 once devices renewed their DHCP leases
 - The Query Log showed real client requests and blocked domains in real time
 
+### Live results, several hours after going live
+
+![Pi-hole Dashboard](Screenshot%202026-07-06%20153941.png)
+
+9,906 total queries, 779 blocked (7.9%), 20 active clients — the traffic spike visible on the graph marks the point where the router's DHCP DNS setting was applied and devices began renewing their leases onto Pi-hole.
+
+![Blocked Domains and Client Activity](Screenshot%202026-07-06%20153945.png)
+
+The most-blocked domains are exactly the category Pi-hole is meant to catch — telemetry and ad-serving endpoints (`scribe.logs.roku.com`, `incoming.telemetry.mozilla.org`, `googleads.g.doubleclick.net`, `app-measurement.com`) — while core functionality for the same services (Netflix, YouTube, Amazon) passes through untouched, confirming the blocklist isn't overly aggressive. Multiple distinct client IPs show activity, confirming the blocking is genuinely network-wide rather than limited to a single device.
+
 ---
 
 ## Troubleshooting Notes
